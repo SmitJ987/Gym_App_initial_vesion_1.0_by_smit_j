@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="10dp"
+    android:id="@+id/parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Training Name"
+            android:id="@+id/txtName"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+<!--        now we will make two drawables
+i.e for trainingAccomplished check button and unchecked
+button
+so inside drawables: make two:
+ic_empty_circle and ic_checked_circle-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_checked_circle"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/checkedCircle"
+            />
+<!--        later inside our PlanRecViewAdapter we will change the visibility
+of the checked_circle according to different situations-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_empty_circle"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/emptyCircle"/>
+
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/trainingImage"
+            android:layout_below="@id/txtName"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textTime"
+            android:text="Time:"
+            android:layout_below="@id/trainingImage"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minutes"
+            android:id="@+id/txtMinutes"
+            android:layout_below="@id/trainingImage"
+            android:layout_toRightOf="@id/textTime"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:id="@+id/txtDescription"
+            android:layout_below="@id/textTime"
+            android:layout_marginTop="10dp"/>
+
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

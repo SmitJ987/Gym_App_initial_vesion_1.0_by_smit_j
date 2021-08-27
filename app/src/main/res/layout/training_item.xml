@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--   step 1: here first of all, we will have cardView as the parent-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp">
+
+<!--    step 2: relative layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        step 3: adding two textView and an imageView-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtName"
+            android:text="Activity Name"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/txtName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/image"
+            />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short Description"
+            android:layout_below="@id/image"
+            android:textStyle="italic"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"/>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

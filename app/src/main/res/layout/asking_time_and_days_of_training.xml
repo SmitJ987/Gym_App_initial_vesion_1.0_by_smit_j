@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lobster_two_italic"
+        android:text="for how long do you want to do this exercise"
+        android:textSize="25dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter number of hours"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:id="@+id/edtHours"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select the Days for this practice"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/lobster_two_italic"
+        android:textSize="25dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:id="@+id/daysSelection"
+        android:layout_marginLeft="30dp">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sunday"
+            android:id="@+id/sunday"
+            android:fontFamily="cursive"
+            android:textSize="25dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday"
+            android:id="@+id/monday"
+            android:fontFamily="cursive"
+            android:textSize="25dp" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tuesday"
+            android:text="Tuesday"
+            android:fontFamily="cursive"
+            android:textSize="25dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wednesday"
+            android:text="Wednesday"
+            android:fontFamily="cursive"
+            android:textSize="25dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Thursday"
+            android:text="thursday"
+            android:fontFamily="cursive"
+            android:textSize="25dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friday"
+            android:id="@+id/friday"
+            android:fontFamily="cursive"
+            android:textSize="25dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saturday"
+            android:id="@+id/saturday"
+            android:fontFamily="cursive"
+            android:textSize="25dp"/>
+
+    </LinearLayout>
+</LinearLayout>

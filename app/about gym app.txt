@@ -1,0 +1,218 @@
+1: let's first of all, add the dependencies in the gradle file
+    two dependencies:
+        1. material design library
+        2. RecyclerView
+        3. Glide library
+
+2. changing the style of the app:
+    inside the Res folder->values-> styles.xml,
+    changing the style: "Theme.MaterialComponents.Light"
+
+3. now working on activity_main.xml file
+
+4. 3 buttons added and now
+
+5. to show all the activities of Gym, i will have to show them inside the RecyclerView
+    and I need to create a model for my trainings  (re-remember the Book model i.e plain old java object, POJO)
+    similarly we have to make a POJO, Training java class
+
+6. now we need a layout file for this POJO we just created, i.e to show the model inside the
+    RecyclerViewAdapter we need the layout for this model i.e "training_item.xml"
+
+7. creating a "TrainingRecyclerViewAdapter.java"
+
+8. creating a new activity to show all of the trainings: new-> empty activity-> AllTrainingsActivity
+        and inside it's layout file i.e the activity_all_trainings.xml, i will
+        only put a recyclerview
+
+9. working inside the AllTrainingsActivity.java up to step 6.
+    after that we just need to get the trainings
+    as for the data source of this app, iam not going to make any database or even sharedPreferences
+    iam going to store all my data inside "static ArrayLists"
+
+10. so for that, creating Utils class for our project
+    making initTrainings() method, and getTrainings() method, in the AllTrainings setting the trainings
+    from Utils class, so adapter.setTrainings(Utils.getTrainings);
+
+
+11. setting onClickListener for the the btnAllTrainings
+
+12. adding the internet permission for our gym app in the manifest file
+
+13. making the TrainingActivity
+        working on it's layout file: "activity_training.xml"
+        working on the java file i.e TrainingActivity.java
+
+14. getting the "training" as extra parcelable with the intent coming from TrainingRecViewAdapter to
+    TrainingActivity
+    and set the data of the UI elements inside the TrainingActivity with
+    the data of the "training" we got as extra parcelable
+15. work in TrainingRecViewAdapter to create Intent when holder.parent is clicked (inside bindViewHolder)
+    but for that as the putExtra is "parcelable type"
+
+    so we have to make some changes inside the Training.java (the POJO)
+        so total 5 things are added newly in
+        Training model as we have implemented Parcelable interface to it
+
+16. now making the intent and putExtra the parcelable in it
+    (inside the TrainingRecViewAdapter->bindViewHolder->holder.parent.setOnClick)
+
+
+17. so now when we open an exercise the app, we see it's details
+
+18. now inside that training details (i.e in the activity_training), there is a button
+    which is "add to your plan", when user clicks that first we have to show that dialog:
+
+    that dialog will ask: for what time, u want to practice this exercise
+    and select the days
+
+    so for that we have to make dialog:
+    but before doing that, iam going to create another model in my project
+    iam going to create a model for plans: "Plan.java"
+
+19. making of custom dialog: dialog_plan_details.xml
+    in previous section we had seen how to display alert dialog, but this time we need to show the
+    custom dialog,
+    for that we have to make a layout for our Dialog: "dialog_plan_details"
+
+    before working on that layout file, first make a String resource
+    in the String res, i will make an Array (of Strings) , and will pass it to a spinner to
+    show the days: so see this inside the strings.xml
+
+    now making the dialog_plan_details
+
+20. as we have the dialog layout file, now making a Java file
+
+    for custom dialogs, after creating a layout file, we need to create a java file as well
+    so making "PlanDetailDialog.java file"
+
+21. so we made PassPlanInterface in the "PlanDetailDialog.java"
+
+22. and implemented that in the TrainingActivity.java
+
+23.  now in the TrainingActivity's btnaddToPlan's setOnclickListener we need to
+    navigate user to the PlanActivity, but we have not made it yet: so do it
+
+24. making PlanActivity
+               //let's first create a dummy activity to see the plan
+               //so making PlanActivity in our project
+25. making plan activity:
+        if user has come here for first time: then we say u have no plans, and we have a button:
+            btnAddPlans
+        but if we have the plans, we will show them day wise
+        so we have made activity_plan.xml
+        now
+26. working on PlanActivity.java file
+            we need PlanRecViewAdapter for above file, so create that
+            but for that also, we need a layout file for every plan item, so create that
+
+27. creating layout file for every plan item: plan_item.xml
+
+28. creating PlanRecViewAdapter
+
+29. coming back to PlanActivity for remaining work
+
+30. in the MainActivity: defining onclickListener for btnPlans.
+
+31. now our PlanActivity is working fine
+        now let's add an onClickListener for all the TextViews  "Edit", which  are in all the
+        days
+        and iam going to navigate the user to another activity, when he click this "Edit" textView
+
+        so we have to create that activity first
+        the "EditActivity"
+
+32. making EditActivity
+        1. design the layout file: activity_edit.xml
+        2. initialising all the UI items in our Java file: EditActivity.java
+
+        3. set the adapter, recView, getPlansByDay() method, btnAddMorePlans etc
+
+33. setting onClickListener for the TextViews "Edit" in the planActivity
+
+34.  making changes in the planRecViewAdapter for the below reason/requirements:
+    for now we can come to this EditActivity
+    but for now we can only show the data of the plan
+    and the working of addMorePlans button
+
+    but we need to do more work in EditActivity
+
+    as for now we can not edit the plan, we can only add some more plans
+
+    so for the remaining work, what we have to do is, two things inside our EditActivity:
+        1. by long pressing on the plan CardView, the plan should be remove this plan from our weekly plan
+        2. by clicking on the empty circle, we are going to change the isAccomplished value
+                of this plan, (inverting: if true then false on Click, and vice-versa)
+        for both of these changes we are going to show the dialog to the user
+        and make sure of the decision
+
+        so for that changes we have to make changes in our planRecViewAdapter
+
+        basically we are using this planRecViewAdapter in two places
+            1. PlanActivity
+            2. EditActivity
+
+            but our planRecViewAdapter needs to behave differently in both the places
+
+    so to make changes go to planRecViewAdapter
+
+    2. onClickLister for emptyCircle is done...
+    1. for longClick remove: we make removePlan() method  in the Utils class
+
+        coming back to planRecViewAdapter, inside the block if(type.equals("edit"))
+        and inside longClickListener of parent(i.e the card view)
+        we use the Utils.removePlan() method
+
+35.    before testing application, i need to the call the setType() method, to set the type of this method to "edit"
+       and we need to call that, from inside my EditActivity.
+
+36. now testing the app, everything is fine except one:
+        there are two bugs:
+        1. the recycler view is not updating after removal of a Plan,
+
+        2. the PlanActivity is not updating, when coming back from EditActivity
+
+
+        solution for updating the recyclerView:
+
+        36.1 we will create a CallBack interface inside the PlanRecViewAdapter
+            and will implement that interface inside the EditActivity
+
+            so whenever the user deletes a plan from the plan list
+            iam going to call the method from inside that callback interface
+
+            iam going to do the Actual removing inside the EditActivity
+
+        so this step: 36.1: creating interface inside the PlanRecViewPAdapter: "RemovePlan" interface
+
+        step 36.2: implementing the RemovePlan interface inside the EditActivity
+        step: 36.3: defining: what the removePlan method will do, when called from
+                    the EditActivity
+
+
+        solution for updating the Plans in PlanActivity
+
+        at present when we press back, we are navigated back to PlanActivity,
+        but this is old now, and we are reaching here with help of backStack
+        but in reality the PlanActivity is not started, it is old data display:
+        in the logcat search for "started", and when pressing back inside the EditActivity
+        see no PlanActivity is starting, so we will tell it explicitly to start the PlanActivity again
+
+        we override the onBackPressed method, inside the EditActivity,
+        and make an intent, going from EditActivity to StartActivity, clearing back stack
+        and then startActivity
+
+        so both the bugs are solved now
+
+37. for the about button, showing the AlertDialog, inside our MainActivity
+
+38. now we have to navigate the User to WebActivity, when he clicks on Positive button of
+    alertDialog of btnAbout
+
+39. making WebActivity
+
+40. if some error come like: err_name_not_resolved, and website do not open,
+    kindly close the emulator, and restart the app install
+
+41. i want to change the font of the message we see in the ALertDialog, for asking for visit to website
+    i want that font to be cursive or lobster, do that.

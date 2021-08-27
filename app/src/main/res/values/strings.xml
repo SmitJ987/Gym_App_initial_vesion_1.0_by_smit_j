@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Gym Application</string>
+
+    <!--    adding an Array to show the days-->
+    <array name="days">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </array>
+
+    <string name="webActivity_message">created out of love by Smit J \nvisit his Linkedin profile for more information</string>
+
+    <string name="webActivity_newFontMessage"><![CDATA[<b><font face="lobster_two_italic" color=#0000FF>Hello World!</font></b>]]></string>
+    <string name="webActivity_newFontMess"><font face="lobster_two_italic"  color="#03DAC5">Hello World!</font></string>
+<!--<font color=#0000FF>-->
+
+</resources>
